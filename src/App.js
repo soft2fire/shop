@@ -1,12 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import NavBar from './Component/NavBar'
 import Shop from "./Component/Shop/Shop";
 import Home from "./Component/Home";
 import Cart from "./Component/Cart";
-import { ItemsContext, Provider } from "./Component/ItemsContext"
+import { Provider } from "./Component/ItemsContext"
 import ProductItem from './Component/Shop/ProductItem';
-
 
 function App() {
  
