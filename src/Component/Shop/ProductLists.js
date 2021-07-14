@@ -34,21 +34,21 @@ const shopItems = {
 
     benz: [
         {
-            name: 'benz X3 2021 BMW',
+            name: 'benz X3 2021 benz',
             id: 4,
             price: 53670,
             description: 'Navigation system Lane departure Automatic temperature control Emergency communication system Power moonroof Wireless phone connectivity Parking sensors Exterior parking camera front',
             image: benz2021
         },
         {
-            name: 'benz 2021 BMW 330i xDrive Sedan',
+            name: 'benz 2021 benz 330i xDrive Sedan',
             id: 5,
             price: 52750,
             description: 'Navigation system Lane departure Automatic temperature control Emergency communication system Power moonroof Wireless phone connectivity Parking sensors Exterior parking camera front',
             image: benz20212
         },
         {
-            name: 'benz 2021 BMW X5 xDrive40i SAV',
+            name: 'benz 2021 benz X5 xDrive40i SAV',
             id: 6,
             price: 74000,
             description: 'Navigation system Lane departure Automatic temperature control Emergency communication system Power moonroof Wireless phone connectivity Parking sensors Exterior parking camera front',
@@ -58,21 +58,21 @@ const shopItems = {
 
     ford: [
         {
-            name: 'ford X3 2021 BMW',
+            name: 'ford X3 2021 ford',
             id: 7,
             price: 53670,
             description: 'Navigation system Lane departure Automatic temperature control Emergency communication system Power moonroof Wireless phone connectivity Parking sensors Exterior parking camera front',
             image: ford20211
         },
         {
-            name: 'ford 2021 BMW 330i xDrive Sedan',
+            name: 'ford 2021 ford 330i xDrive Sedan',
             id: 8,
             price: 52750,
             description: 'Navigation system Lane departure Automatic temperature control Emergency communication system Power moonroof Wireless phone connectivity Parking sensors Exterior parking camera front',
             image: ford20212
         },
         {
-            name: 'ford 2021 BMW X5 xDrive40i SAV',
+            name: 'ford 2021 ford X5 xDrive40i SAV',
             id: 9,
             price: 74000,
             description: 'Navigation system Lane departure Automatic temperature control Emergency communication system Power moonroof Wireless phone connectivity Parking sensors Exterior parking camera front',
