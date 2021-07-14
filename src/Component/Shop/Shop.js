@@ -33,6 +33,7 @@ const Shop = () => {
 
     return (
         <div className="mb-4">
+            
             <div className='flex justify-center mx-3 rounded-b-md bg-gray-700 bg-opacity-75  text-white'>
 
                 <button onClick={() => setShowItems('all')} className='px-3 hover:bg-gray-800'>ALL</button>
