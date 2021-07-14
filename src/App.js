@@ -9,10 +9,7 @@ import ProductItem from './Component/Shop/ProductItem';
 
 
 function App() {
-  const [cartItems, setCartItems] = useState(ItemsContext)
-  const getCartItems = () => {
-    cartItems.map((item)=>(console.log(item)))
-  }
+ 
   return (
     <Provider>
       <Router>
