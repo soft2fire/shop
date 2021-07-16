@@ -5,7 +5,7 @@ const ProductItem = (props) => {
     const [quantity, setQuantity] = useState(1);
     const { id, onClick, name, image, price, description } = props;
     function setLocalPath(id) {
-        localStorage.setItem('currentProduct', id);
+        localStorage.setItem('currentProductPage', id);
     }
     return (
         <div className="text-white bg-gray-700 bg-opacity-75 rounded-lg m-2 shadow-inner">

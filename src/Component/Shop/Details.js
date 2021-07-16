@@ -1,43 +1,34 @@
-import { useState, useContext } from "react"
+import { useContext, useState } from 'react'
+import { CartContext } from '../CartContext'
 import shopItems from './Data'
-import { CartContext } from '../CartContext';
 
 
-const Details = (props) => {
-    // const [quantity, setQuantity] = useState(1);
+const Details = () => {
     const [cartItems, setCartItems] = useContext(CartContext);
-    const [products] = useState(shopItems);
-    const index = localStorage.getItem('currentProduct');
-    const info = products.find((item) => item.id === Number(index));
-    console.log(cartItems)
+    const [productItems] = useState(shopItems);
+    const index = localStorage.getItem('currentProductPage')
+    const currentProductInfo = productItems.find((item) => item.id === Number(index));
 
     const handleAddInCart = (item, quantity) => {
-
-        if (cartItems.some(element => element.item.id === item.id)) {
-
+        if (cartItems.some((element) => element.item.id === item.id)) {
             cartItems.forEach(element => {
-
                 if (element.item.id === item.id) {
-                    const newCartItems = [...cartItems];
-                    const index = newCartItems.indexOf(element);
-                    newCartItems[index].amount = Number(element.amount) + Number(quantity);
-                    setCartItems(newCartItems);
+                    const newCartItem = [...cartItems];
+                    const index = newCartItem.indexOf(element);
+                    newCartItem[index].amount = Number(element.amount) + Number(quantity);
+                    setCartItems(newCartItem);
                 }
-
             });
-
             return;
         }
-
         const cartItem = {
             item: item,
             amount: quantity
         }
         setCartItems([...cartItems, cartItem]);
     }
-
-
-    const { name, image, price, description } = info;
+    const { name, image, description, price } = currentProductInfo;
+    
     return (
         <div className="text-white bg-gray-700 bg-opacity-75 rounded-lg m-2 shadow-inner">
             <h2 className="font-bold text-xl text-center mt-2 bg-gray-700 rounded mx-8">{name}</h2>
@@ -47,7 +38,7 @@ const Details = (props) => {
                     <p className="mt-2 h-auto text-gray-400 text-lg font-bold">{description}</p>
                     <p className="mt-2 h-auto text-gray-400 text-lg font-bold">{description}</p>
                     <h1 className="text-gray-100 font-bold text-xl mt-4">Price : ${price}
-                        <button onClick={() => handleAddInCart(info, 1)}
+                        <button onClick={() => handleAddInCart(currentProductInfo, 1)}
                             className="px-3 py-2 mx-4 bg-gray-800 text-xs font-bold uppercase rounded hover:bg-gray-600">
                             Add to Card
                         </button>

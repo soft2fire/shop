@@ -5,8 +5,26 @@ const Cart = () => {
     const [cartItems, setCartItems] = useContext(CartContext);
     const [promoCode, setPromoCode] = useState('')
     const [afterPromo, setAfterPromo] = useState('')
-    // const [cartContext] = useContext(CartContext);
-    console.log(cartItems)
+
+    const totalPrice = (basket, items) => {
+        return basket + items.item.price * items.amount + 1;
+    }
+
+    const totalCost = () => {
+        if (cartItems.length === 1) {
+            let sumItems = cartItems[0].item.price * cartItems[0].amount;
+            return sumItems;
+        } else if (cartItems.length > 1) {
+            let sumItems = cartItems.reduce(totalPrice, 0).toFixed(2);
+            return sumItems;
+        } else { return 0; }
+    }
+
+    const removeItem = (removedItem) => {
+        setCartItems(
+            cartItems.filter((item) => item !== removedItem)
+        );
+    }
     const handlePromoCode = () => {
         if (promoCode === 'love') {
             setAfterPromo(totalCost() - 1000)
@@ -15,32 +33,9 @@ const Cart = () => {
         }
     }
 
-
-    const totalPrice = (basket, items) => {
-        return basket + items.item.price * items.amount + 1;
-    }
-
-
-    const totalCost = () => {
-        if (cartItems.length === 1) {
-            let sumItems = cartItems[0].item.price * cartItems[0].amount
-            return sumItems
-        } else if (cartItems.length > 1) {
-            let sumItems = cartItems.reduce(totalPrice, 0).toFixed(2)
-            return sumItems
-        } else { return '0' }
-    }
-
-
     const handleChangePromo = (event) => {
         const { value } = event.target;
         setPromoCode(value);
-    }
-
-    const removeItem = (removeItem) => {
-        setCartItems(
-            cartItems.filter(item => item !== removeItem)
-        );
     }
 
     return (
