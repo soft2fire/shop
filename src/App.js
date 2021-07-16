@@ -4,13 +4,12 @@ import NavBar from './Component/NavBar'
 import Shop from "./Component/Shop/Shop";
 import Home from "./Component/Home";
 import Cart from "./Component/Cart";
-import { Provider } from "./Component/ItemsContext"
-import ProductItem from './Component/Shop/ProductItem';
+import { CartProvider } from "./Component/CartContext"
+import Details from './Component/Shop/Details';
 
 function App() {
- 
   return (
-    <Provider>
+    <CartProvider>
       <Router>
         <NavBar />
         <Switch>
@@ -19,11 +18,11 @@ function App() {
           <Route path="/Cart" component={Cart} />
           <Route
             path='/shop/:id'
-            render={(props) => <ProductItem {...props} />}
+            component={Details}
           />
         </Switch>
       </Router>
-    </Provider>
+    </CartProvider>
   );
 }
 

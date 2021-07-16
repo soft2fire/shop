@@ -1,7 +1,12 @@
 import { useState } from "react"
+import { Link } from 'react-router-dom';
+
 const ProductItem = (props) => {
     const [quantity, setQuantity] = useState(1);
-    const { onClick, name, image, price, description } = props;
+    const { id, onClick, name, image, price, description } = props;
+    function setLocalPath(id) {
+        localStorage.setItem('currentProduct', id);
+    }
     return (
         <div className="text-white bg-gray-700 bg-opacity-75 rounded-lg m-2 shadow-inner">
             <h2 className="font-bold text-xl text-center mt-2 bg-gray-700 rounded mx-8">{name}</h2>
@@ -18,9 +23,13 @@ const ProductItem = (props) => {
                 <button onClick={() => { onClick(quantity) }}
                     className="px-3 py-2 bg-gray-800 text-xs font-bold uppercase rounded hover:bg-gray-600">
                     Add to Card</button>
+                <Link to={`/shop/${id}`} onClick={() => setLocalPath(id)}
+                    className="px-3 py-2 bg-gray-800 text-xs font-bold uppercase rounded hover:bg-gray-600">
+                    Details
+                </Link>
                 <h1 className="text-gray-100 font-bold text-xl">${price}</h1>
                 <label className=" bg-gray-800 rounded-md pl-2">
-                    Quantity :
+                    Qty :
                     <select className="m-1 rounded text-gray-800"
                         onChange={(event) => setQuantity(event.target.value)}
                         name="quantity"

@@ -1,9 +1,9 @@
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { ItemsContext } from './ItemsContext';
+import { CartContext } from './CartContext';
 
 const NavBar = () => {
-    const [cartItems] = useContext(ItemsContext);
+    const [cartItems] = useContext(CartContext);
     return (
         <div className="mt-2">
             <main className="bg-gradient-to-r from-green-700 to-blue-800 rounded-t-lg shadow-2xl border-2 border-gray-700 border-opacity-25 ">

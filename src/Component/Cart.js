@@ -1,11 +1,12 @@
 import { useContext, useState } from "react";
-import { ItemsContext } from "./ItemsContext";
+import { CartContext } from "./CartContext";
 
 const Cart = () => {
-    const [cartItems, setCartItems] = useContext(ItemsContext);
+    const [cartItems, setCartItems] = useContext(CartContext);
     const [promoCode, setPromoCode] = useState('')
     const [afterPromo, setAfterPromo] = useState('')
-
+    // const [cartContext] = useContext(CartContext);
+    console.log(cartItems)
     const handlePromoCode = () => {
         if (promoCode === 'love') {
             setAfterPromo(totalCost() - 1000)
@@ -19,14 +20,13 @@ const Cart = () => {
         return basket + items.item.price * items.amount + 1;
     }
 
+
     const totalCost = () => {
         if (cartItems.length === 1) {
             let sumItems = cartItems[0].item.price * cartItems[0].amount
-            // console.log(sumItems + "sumItemssss")
             return sumItems
         } else if (cartItems.length > 1) {
             let sumItems = cartItems.reduce(totalPrice, 0).toFixed(2)
-            // console.log(sumItems + "sumItems")
             return sumItems
         } else { return '0' }
     }
@@ -64,7 +64,7 @@ const Cart = () => {
                             <div key={items.item.id} className="flex items-center hover:bg-gray-600 -mx-8 px-6 py-5">
                                 <div className="flex">
                                     <div className="w-64">
-                                        <img src={items.item.image} alt="" />
+                                        <img src={items.item.image} alt={items.item.name} />
                                     </div>
                                     <div className="flex flex-col justify-between ml-4 flex-grow">
                                         <span className="font-bold  text-sm">{items.item.name}</span>
@@ -100,8 +100,7 @@ const Cart = () => {
                         <div className="py-4">
                             <label htmlFor="promo" className="font-semibold inline-block mb-3 text-sm uppercase">discount</label>
                             <label htmlFor="promo" className="font-semibold text-red-400 mb-3 text-xs"> Enter the word love </label>
-
-                            <input type="text" id="promo" onChange={handleChangePromo} placeholder="Enter your code"
+                            <input type="text" id="promo" onChange={handleChangePromo} placeholder="Enter love"
                                 className="p-2 text-sm text-gray-900 w-full" />
                         </div>
                         <button onClick={() => { handlePromoCode() }}
