@@ -36,10 +36,7 @@ const Details = (props) => {
         setCartItems([...cartItems, cartItem]);
     }
 
-    const addToCart = () => {
-        const Car = { name, image, price, description }
-        setCartItems(curr => [...curr, Car]);
-    }
+
     const { name, image, price, description } = info;
     return (
         <div className="text-white bg-gray-700 bg-opacity-75 rounded-lg m-2 shadow-inner">
